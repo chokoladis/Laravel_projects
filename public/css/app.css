@@ -1,0 +1,9 @@
+header.header .uk-navbar-container {
+  background: transparent;
+}
+header.header .uk-navbar-container .uk-navbar-nav > li a {
+  color: rgb(0, 110, 255);
+}
+header.header .uk-navbar-container .uk-navbar-nav > li a:hover {
+  color: rgba(43, 135, 255, 0.74);
+}

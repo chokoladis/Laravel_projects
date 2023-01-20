@@ -1,0 +1,22 @@
+$linkColor: rgb(0, 110, 255);
+$linkColor-hv: rgba(43, 135, 255, 0.74);
+$headerLogoWigth: 100px;
+
+header.header {
+
+    .uk-navbar-container{
+        background: transparent;
+
+        .uk-navbar-nav>li{
+            a{
+                color: $linkColor;
+        
+                &:hover{
+                    color: $linkColor-hv;
+                }
+            }    
+        }
+    }
+    
+}
+
