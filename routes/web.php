@@ -18,5 +18,14 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-Route::get('/test', 'Registrate@NewUser');
+Route::get('/test', 'Registrate@test');
 
+Route::get('/registration', function(){
+    return view('registrate');
+});
+
+Route::post('/registration/submit', 'Registrate@newUser')->name('add-user');
+
+Route::get('/account', function(){
+    return view('account');
+})->name('page-account');

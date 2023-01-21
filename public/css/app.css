@@ -1,9 +1,84 @@
+*, *:hover {
+  transition: 0.3s all;
+}
+
 header.header .uk-navbar-container {
   background: transparent;
 }
+header.header .uk-navbar-container .uk-navbar-left {
+  border-bottom-right-radius: 30px;
+  background: white;
+  box-shadow: 0px 3px 6px rgb(224, 224, 224);
+  padding-left: 25px;
+}
+header.header .uk-navbar-container .logo {
+  width: 65px;
+  margin: 0px auto;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px silver;
+  top: 10px;
+  height: -moz-fit-content;
+  height: fit-content;
+  transition: 0.3s all;
+  background-size: 400% 400%;
+  background-image: linear-gradient(164deg, rgba(255, 224, 51, 0.712), rgba(255, 56, 56, 0.664), blue);
+  background-position: 30% 60%;
+}
+header.header .uk-navbar-container .logo:hover {
+  background-position: 0% 20%;
+}
+header.header .uk-navbar-container .logo:hover img {
+  transform: rotate3d(5, 4, 2, 174deg);
+  filter: saturate(2) brightness(1);
+}
+header.header .uk-navbar-container .logo img {
+  transform: rotate3d(0, 0, 0, 0);
+  filter: saturate(0) brightness(5);
+}
+header.header .uk-navbar-container .uk-navbar-right {
+  border-bottom-left-radius: 30px;
+  background: white;
+  box-shadow: 0px 3px 6px rgb(224, 224, 224);
+  padding-right: 25px;
+  margin: 0;
+}
+header.header .uk-navbar-container .uk-navbar-nav {
+  padding: 5px 10px;
+}
 header.header .uk-navbar-container .uk-navbar-nav > li a {
   color: rgb(0, 110, 255);
+  transform: skew(0deg, 0deg);
+  transition: 0.3s;
 }
 header.header .uk-navbar-container .uk-navbar-nav > li a:hover {
-  color: rgba(43, 135, 255, 0.74);
+  color: rgba(252, 76, 32, 0.918);
+  transform: skew(-10deg, 3deg);
+  transform: skew(10deg, 1deg);
+  transition: 0.3s;
+}
+
+section.content {
+  margin-top: 40px;
+  padding-top: 80px;
+  color: black;
+}
+section .bg_volny {
+  background-image: url("/img/volny_okean.jpg");
+  color: white;
+  padding: 10px;
+}
+section .bg_volny h1, section .bg_volny h2, section .bg_volny h3, section .bg_volny h4, section .bg_volny h5, section .bg_volny h6 {
+  color: white;
+}
+section .bg_volny h2 {
+  text-transform: uppercase;
+}
+section form .uk-input {
+  border-radius: 4px;
+}
+
+footer {
+  background: linear-gradient(170deg, rgba(0, 0, 0, 0), rgba(14, 2, 49, 0.63));
+  padding: 100px;
 }
