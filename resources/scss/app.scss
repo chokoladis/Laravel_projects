@@ -1,14 +1,22 @@
+// header
 $linkColor: rgb(0, 110, 255);
 $linkColor-hv: rgba(252, 76, 32, 0.918);
 $headerLogoWigth: 100px;
+$header-nav-shadow: 0px 3px 6px rgb(224, 224, 224);
+
 $border-radius: 10px;
 $border-radius-input: 4px;
+
+// footer
+$footer-shadow: 0px -3px 6px rgb(224, 224, 224);
 $bg-content: linear-gradient(170deg, rgba(0, 0, 0, 0), rgba(14, 2, 49, 0.63));
 
 *,*:hover{
     transition: .3s all;
 }
-
+.width-fit{
+    width: fit-content;
+}
 
 header.header {
 
@@ -18,7 +26,7 @@ header.header {
         .uk-navbar-left{
             border-bottom-right-radius: 30px;
             background: white;
-            box-shadow: 0px 3px 6px rgb(224, 224, 224);
+            box-shadow: $header-nav-shadow;
             padding-left: 25px;
         }
 
@@ -56,7 +64,7 @@ header.header {
         .uk-navbar-right{
             border-bottom-left-radius: 30px;
             background: white;
-            box-shadow: 0px 3px 6px rgb(224, 224, 224);
+            box-shadow: $header-nav-shadow;
             padding-right: 25px;
             margin: 0;
         }
@@ -88,7 +96,7 @@ header.header {
 section{
 
     &.content{
-        margin-top: 40px;
+        margin: 40px auto;
         padding-top: 80px;
 
         color: black;
@@ -96,6 +104,8 @@ section{
 
     .bg_volny{
         background-image: url('/img/volny_okean.jpg');
+        background-size: cover;
+        overflow: hidden;
         color: white;
         padding: 10px;
 
@@ -116,6 +126,7 @@ section{
 }
 
 footer{
-    background:$bg-content;
+    // background:$bg-content;
     padding: 100px;
+    box-shadow: $footer-shadow;
 }

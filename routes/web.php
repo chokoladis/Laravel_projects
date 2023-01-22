@@ -22,7 +22,7 @@ Route::get('/test', 'Registrate@test');
 
 Route::get('/registration', function(){
     return view('registrate');
-});
+})->name('page-reg');
 
 Route::post('/registration/submit', 'Registrate@newUser')->name('add-user');
 

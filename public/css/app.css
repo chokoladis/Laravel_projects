@@ -2,6 +2,11 @@
   transition: 0.3s all;
 }
 
+.width-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 header.header .uk-navbar-container {
   background: transparent;
 }
@@ -59,12 +64,14 @@ header.header .uk-navbar-container .uk-navbar-nav > li a:hover {
 }
 
 section.content {
-  margin-top: 40px;
+  margin: 40px auto;
   padding-top: 80px;
   color: black;
 }
 section .bg_volny {
   background-image: url("/img/volny_okean.jpg");
+  background-size: cover;
+  overflow: hidden;
   color: white;
   padding: 10px;
 }
@@ -79,6 +86,6 @@ section form .uk-input {
 }
 
 footer {
-  background: linear-gradient(170deg, rgba(0, 0, 0, 0), rgba(14, 2, 49, 0.63));
   padding: 100px;
+  box-shadow: 0px -3px 6px rgb(224, 224, 224);
 }

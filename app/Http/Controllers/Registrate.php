@@ -7,18 +7,63 @@ use App\Models\User;
 
 class Registrate extends Controller
 {
+    // public function newUser(Request $req){
+
+    //     $User = new User();
+    //     $Mess = array();
+    //     $Mess_status = 'error';
+    //     $route = 'page-reg';
+
+    //     if ($req->input('fio') == NULL || strlen($req->input('fio')) < 2){
+    //         $Mess[] = 'Поле ФИО должно иметь более 1 символа';
+    //     }
+    //     if ($req->input('email') == NULL){
+    //         $Mess[] = 'Поле Email должно иметь более 8 символов'; 
+    //     }
+    //     if ($req->input('password') == NULL || strlen($req->input('password'))){
+    //         $Mess[] = 'Поле Пароль должно иметь более 5 символов';
+    //     } 
+    //     if($req->input('password') != $req->input('password_conf')){
+    //         $Mess[] = 'Введите одинаковые пароли';
+    //     }
+
+    //     if (empty($Mess)){
+    //         $Mess[] = 'Пользователь успешно добавлен';
+    //         $Mess_status = 'success';
+    //         $route = 'page-account';
+
+    //         $User->fio = $req->input('fio');
+    //         $User->email = $req->input('email');
+    //         $User->password = $req->input('password');
+
+    //         $User->save();
+            
+    //     }
+
+
+    //     return redirect()->route($route)->with($Mess_status, $Mess);
+    // }
+
     public function newUser(Request $req){
 
         $User = new User();
+
+        $req->validate([
+            'fio'  => 'required|min:2|max:120',
+            'email'   => 'required|min:8|max:70|email:rfc,filter,dns',
+            'password' => 'required|min:6',
+            'password_conf' => 'required|same:password',
+        ]);
+
         $User->fio = $req->input('fio');
         $User->email = $req->input('email');
         $User->password = $req->input('password');
 
         $User->save();
 
-        return redirect()->route('page-account')->with('success', 'Сообщение успешно отправлено');
+        auth()->login($User);
 
-        return view('registrate');
+        return redirect()->route('page-account')->with('success', 'Пользователь успешно добавлен');
     }
 
     public function test(){

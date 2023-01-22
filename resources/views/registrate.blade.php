@@ -14,20 +14,20 @@
 
                 <div class="uk-inline">
                     <span class="uk-form-icon" uk-icon="icon: user"></span>
-                    <input type="text" name="fio" id="fio" class="uk-input uk-form-blank uk-form-small">
+                    <input type="text" name="fio" id="fio" class="uk-input uk-form-small uk-form-blank @error('fio') uk-form-danger @enderror">
                 </div>
                 
                 <div class="uk-inline">
                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
-                    <input type="email" name="email" id="email" class="uk-input uk-form-blank uk-form-small ">
+                    <input type="email" name="email" id="email" class="uk-input uk-form-small uk-form-blank @error('email') uk-form-danger @enderror">
                 </div>
                 <div class="uk-inline">
                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                    <input type="password" name="password" id="password" class="uk-input uk-form-blank uk-form-small "  aria-label="Not clickable icon">
+                    <input type="password" name="password" id="password" class="uk-input uk-form-blank uk-form-small @error('password') uk-form-danger @enderror"  aria-label="Not clickable icon">
                 </div>
                 <div class="uk-inline">
                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                    <input type="password" name="password_repeat" id="password_repeat" class="uk-input uk-form-blank uk-form-small " aria-label="Not clickable icon">
+                    <input type="password" name="password_conf" id="password_conf" class="uk-input uk-form-blank uk-form-small @error('password_conf') uk-form-danger @enderror" aria-label="Not clickable icon">
                 </div>
                 <div class="uk-inline">
                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: push"></span>
