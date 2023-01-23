@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\Registrate;
+// use App\Http\Controllers\RegistrateController;
+// use App\Http\Controllers\LoginController;
+// use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +16,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
+Route::group(['namespace' => 'App\Http\Controllers'], function()
+{   
+    
+    Route::get('/', function () {
+        return view('homepage');
+    });
+    
+    Route::get('/test', 'RegistrateController@test');
+    
+    Route::get('/account', function(){
+        return view('account');
+    })->name('page-account');
+
+    
+    Route::group(['middleware' => ['guest']], function() {
+        /**
+         * Register Routes
+         */
+        Route::get('/registration', 'RegistrateController@show')->name('page-reg');
+        Route::post('/registration', 'RegistrateController@newUser')->name('add-user');
+
+        /**
+         * Login Routes
+         */
+        Route::get('/login', 'LoginController@show')->name('page-login');
+        Route::post('/login', 'LoginController@login')->name('login-submit');
+
+    });
+
+    Route::group(['middleware' => ['auth']], function() {
+        /**
+         * Logout Routes
+         */
+        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+    });
 });
 
-Route::get('/test', 'Registrate@test');
-
-Route::get('/registration', function(){
-    return view('registrate');
-})->name('page-reg');
-
-Route::post('/registration/submit', 'Registrate@newUser')->name('add-user');
-
-Route::get('/account', function(){
-    return view('account');
-})->name('page-account');

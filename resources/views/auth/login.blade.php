@@ -8,14 +8,9 @@
     <section class="content">
         <div class="uk-container">
             <h4 class="uk-margin-auto uk-width-1-2">Registrate me please, dont stop, DEEEEPER!!!</h4>
-            <form method="POST" action="{{ route('add-user') }}" class="uk-flex uk-flex-column uk-width-1-2 uk-margin-auto">
+            <form method="POST" action="{{ route('login-submit') }}" class="uk-flex uk-flex-column uk-width-1-2 uk-margin-auto">
                 
                 @csrf
-
-                <div class="uk-inline">
-                    <span class="uk-form-icon" uk-icon="icon: user"></span>
-                    <input type="text" name="fio" id="fio" class="uk-input uk-form-small uk-form-blank @error('fio') uk-form-danger @enderror">
-                </div>
                 
                 <div class="uk-inline">
                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
@@ -24,10 +19,6 @@
                 <div class="uk-inline">
                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
                     <input type="password" name="password" id="password" class="uk-input uk-form-blank uk-form-small @error('password') uk-form-danger @enderror"  aria-label="Not clickable icon">
-                </div>
-                <div class="uk-inline">
-                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                    <input type="password" name="password_conf" id="password_conf" class="uk-input uk-form-blank uk-form-small @error('password_conf') uk-form-danger @enderror" aria-label="Not clickable icon">
                 </div>
                 <div class="uk-inline">
                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: push"></span>

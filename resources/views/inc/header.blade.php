@@ -16,7 +16,13 @@
             <ul class="uk-navbar-nav">
                 <li><a href="">no real</a></li>
                 <li><a href="">ducthland we</a></li>
-                <li><a href="/registration">Регистрация</a></li>
+                <li><a href="#"><img src="/img/header-user-icon.png" alt="Пользователь"></a>
+                    <ul>
+                        <li><a href="/registration">Registrate</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href=""></a></li>
+                    </ul>    
+                </li>
             </ul>
         </div>
     </nav>

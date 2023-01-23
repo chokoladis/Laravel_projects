@@ -2078,6 +2078,9 @@ try {
 } finally {
   _iterator.f();
 }
+$('.uk-navbar-nav > li').on('click', function () {
+  $(this).toggleClass('active');
+});
 
 /***/ }),
 

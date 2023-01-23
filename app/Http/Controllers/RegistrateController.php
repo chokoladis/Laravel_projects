@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Requests\RegistrateRequest;
 
-class Registrate extends Controller
+
+class RegistrateController extends Controller
 {
     // public function newUser(Request $req){
 
@@ -44,22 +46,15 @@ class Registrate extends Controller
     //     return redirect()->route($route)->with($Mess_status, $Mess);
     // }
 
-    public function newUser(Request $req){
+    public function show()
+    {
+        return view('auth.registrate');
+    }
 
-        $User = new User();
+    public function newUser(RegistrateRequest $req){
 
-        $req->validate([
-            'fio'  => 'required|min:2|max:120',
-            'email'   => 'required|min:8|max:70|email:rfc,filter,dns',
-            'password' => 'required|min:6',
-            'password_conf' => 'required|same:password',
-        ]);
-
-        $User->fio = $req->input('fio');
-        $User->email = $req->input('email');
-        $User->password = $req->input('password');
-
-        $User->save();
+        
+        $User = User::create($req->validated());
 
         auth()->login($User);
 

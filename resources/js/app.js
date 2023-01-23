@@ -5,3 +5,7 @@ for (let key of $('input')){
         $(key).removeClass('uk-form-blank');    
     }
 }
+
+$('.uk-navbar-nav > li').on('click', function(){
+    $(this).toggleClass('active');
+});

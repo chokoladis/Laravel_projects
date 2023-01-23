@@ -18,115 +18,247 @@ $bg-content: linear-gradient(170deg, rgba(0, 0, 0, 0), rgba(14, 2, 49, 0.63));
     width: fit-content;
 }
 
-header.header {
+body{
+    z-index: -6;
+    position: relative;
 
-    .uk-navbar-container{
-        background: transparent;
+    header.header {
 
-        .uk-navbar-left{
-            border-bottom-right-radius: 30px;
-            background: white;
-            box-shadow: $header-nav-shadow;
-            padding-left: 25px;
-        }
-
-        .logo{
-            width: 65px;
-            margin: 0px auto;
-            position: relative;
-            border-radius: $border-radius;
-            box-shadow: 0px 2px 4px silver;
-            top: 10px;
-            height: fit-content;
-            transition: .3s all;
-
-            background-size: 400% 400%;             
-            background-image: linear-gradient(164deg, rgba(255, 224, 51, 0.712), rgba(255, 56, 56, 0.664), blue);
-            background-position: 30% 60%;
+        .uk-navbar-container{
+            background: transparent;
     
-
-            &:hover{
-                background-position: 0% 20%;
-                // box-shadow: 0px 8px 15px silver;
-
+            .uk-navbar-left{
+                border-bottom-right-radius: 30px;
+                background: white;
+                box-shadow: $header-nav-shadow;
+                padding-left: 25px;
+            }
+    
+            .logo{
+                width: 65px;
+                margin: 0px auto;
+                position: relative;
+                border-radius: $border-radius;
+                box-shadow: 0px 2px 4px silver;
+                top: 10px;
+                height: fit-content;
+                transition: .3s all;
+    
+                background-size: 400% 400%;             
+                background-image: linear-gradient(164deg, rgba(255, 224, 51, 0.712), rgba(255, 56, 56, 0.664), blue);
+                background-position: 30% 60%;
+        
+    
+                &:hover{
+                    background-position: 0% 20%;
+                    // box-shadow: 0px 8px 15px silver;
+    
+                    img{
+                        transform: rotate3d(5, 4, 2, 174deg);
+                        filter: saturate(2) brightness(1);
+                    }
+                }
+    
                 img{
-                    transform: rotate3d(5, 4, 2, 174deg);
-                    filter: saturate(2) brightness(1);
+                    transform: rotate3d(0, 0, 0, 0);
+                    filter: saturate(.0) brightness(5);
                 }
             }
-
-            img{
-                transform: rotate3d(0, 0, 0, 0);
-                filter: saturate(.0) brightness(5);
+    
+            .uk-navbar-right{
+                border-bottom-left-radius: 30px;
+                background: white;
+                box-shadow: $header-nav-shadow;
+                padding-right: 25px;
+                margin: 0;
             }
-        }
-
-        .uk-navbar-right{
-            border-bottom-left-radius: 30px;
-            background: white;
-            box-shadow: $header-nav-shadow;
-            padding-right: 25px;
-            margin: 0;
-        }
-
-        .uk-navbar-nav{
-            padding: 5px 10px;
-
-            &>li{
-                a{
-                    color: $linkColor;
-                    transform: skew(0deg,0deg);
-                    transition: .3s;
-
-                    &:hover{
-                        color: $linkColor-hv;
-                        transform: skew(-10deg, 3deg);
-                        transform: skew(10deg,1deg);
+    
+            .uk-navbar-nav{
+                padding: 5px 10px;
+    
+                *{
+                    font-weight: 700;
+                }
+    
+                &>li{
+                    a{
+                        color: $linkColor;
+                        transform: skew(0deg,0deg);
                         transition: .3s;
-                    }
-                }    
-            }
-        }
+    
+                        img{
+                            width: 40px;
+                            filter: saturate(0%) brightness(1.1);
+                        }
+    
+                        &:hover{
+                            color: $linkColor-hv;
+                            transform: skew(-10deg, 3deg);
+                            transform: skew(10deg,1deg);
+                            transition: .3s;                    
+                        }
+                    }  
+                    
+                    ul{
+                        position: absolute;
+                        top: -40px;
+                        right: 5px;
+                        background: black;
+                        background: linear-gradient(0deg, rgb(216, 216, 216), transparent);
+                        background: linear-gradient(0deg, rgb(100, 160, 190), transparent);
+                        box-shadow: -2px 3px 6px silver;
+                        border-radius: 6px;
+                        display: flex;
+                        flex-direction: column;
+                        margin: 0;
+                        padding: 25px 15px 5px;
+                        z-index: -1;
+                        overflow: hidden;
+    
+                        li{
+                            display: block;
+                            
+    
+                            a{
+                                color: white;
+                                display: block;
+                                position: relative;
+                                text-decoration: none;
+                                padding: 0;
 
-       
+                                &::after{
+                                    content: "";
+                                    width: 15%;
+                                    height: 50%;
+                                    position: absolute;
+                                    background: white;
+                                    left: -50px;
+                                    border-radius: 50px;
+                                    top: 0;
+                                    bottom: 0;
+                                    margin: auto;
+                                }
+
+                                &:hover{
+                                    transform: skewX(10deg);
+                                    // color: rgb(223, 223, 223);
+                                    color: lighten($linkColor-hv, 35%);
+
+                                    &::after{
+                            
+                                        left: -20px;
+                                        transition: .4s;
+                                    }
+                                }
+                            }
+                        }
+    
+                        &:hover{
+                            top: 80px;
+                        }
+                    }
+    
+                    &:hover{
+
+                        a>img{
+                            filter: saturate(50%) brightness(1);
+                        }
+
+                        ul{
+                            top: 40px;
+                        }
+                    }
+                    &.active{
+
+                        a>img{
+                            filter: saturate(100%) brightness(1);
+                        }
+                        
+
+                        ul{
+                            top: 80px;
+                        }
+                    }
+                }
+            }
+    
+           
+        }
+        
     }
     
-}
+    section{
+    
+        z-index: -5;
+        position: relative;
 
-section{
-
-    &.content{
-        margin: 40px auto;
-        padding-top: 80px;
-
-        color: black;
-    }
-
-    .bg_volny{
-        background-image: url('/img/volny_okean.jpg');
-        background-size: cover;
-        overflow: hidden;
-        color: white;
-        padding: 10px;
-
-        h1,h2,h3,h4,h5,h6{
+        &.content{
+            margin: 40px auto;
+            padding-top: 80px;
+    
+            color: black;
+        }
+    
+        .bg_volny{
+            background-image: url('/img/volny_okean.jpg');
+            background-size: cover;
+            overflow: hidden;
             color: white;
+            padding: 10px;
+    
+            h1,h2,h3,h4,h5,h6{
+                color: white;
+            }
+            h2{
+                text-transform: uppercase;
+            }
         }
-        h2{
-            text-transform: uppercase;
+    
+        form{
+    
+    
+            .uk-inline{
+    
+                .uk-input{
+                    border-radius: $border-radius-input;
+                }
+    
+                input[type="submit"]{
+                    text-transform: uppercase;
+                    box-shadow: 1px 2px 5px rgb(224, 224, 224);
+                    transform: skewX(0deg);
+                    transition: .3s;
+                }
+    
+                &:hover{
+    
+                    input[type="submit"]{
+                        background: #000;
+                        color: white;
+                        box-shadow: 2px 3px 10px rgb(224, 224, 224);
+                        transform: skewX(-13deg);
+                        transition: .3s;
+                    }
+                    .uk-form-icon[uk-icon="icon: push"]{
+                        filter: brightness(23);
+                        z-index: 100;
+                    }
+                    
+                }
+    
+    
+            
+                
+            }
+           
         }
     }
-
-    form{
-
-        .uk-input{
-            border-radius: $border-radius-input;
-        }
+    
+    footer{
+        // background:$bg-content;
+        padding: 100px;
+        box-shadow: $footer-shadow;
     }
-}
 
-footer{
-    // background:$bg-content;
-    padding: 100px;
-    box-shadow: $footer-shadow;
+    
 }
