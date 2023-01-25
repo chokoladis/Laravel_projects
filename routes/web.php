@@ -23,7 +23,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         return view('homepage');
     });
     
-    Route::get('/test', 'RegistrateController@test');
+    Route::get('/todolist', 'ToDoListController@show');
     
     Route::get('/account', function(){
         return view('account');
@@ -49,7 +49,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * Logout Routes
          */
-        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+        Route::get('/logout', 'LogoutController@perform')->name('page-logout');
     });
 });
 

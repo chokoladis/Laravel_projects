@@ -7,7 +7,7 @@
 @section('content')
     <section class="content">
         <div class="uk-container">
-            <h4 class="uk-margin-auto uk-width-1-2">Registrate me please, dont stop, DEEEEPER!!!</h4>
+            <h4 class="uk-margin-auto uk-width-1-2 wd-fit">Registrate me please, dont stop, DEEEEPER!!!</h4>
             <form method="POST" action="{{ route('add-user') }}" class="uk-flex uk-flex-column uk-width-1-2 uk-margin-auto">
                 
                 @csrf
@@ -20,7 +20,16 @@
                         @error('fio') uk-form-danger @enderror"
                         value="{{old('fio')}}">
                 </div>
-                
+
+                <div class="uk-inline">
+                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: user"></span>
+                    <input type="text" name="username" id="username" 
+                        placeholder="Type your login/username"
+                        class="uk-input uk-form-small uk-form-blank 
+                        @error('username') uk-form-danger @enderror"
+                        value="{{old('username')}}">
+                </div>
+
                 <div class="uk-inline">
                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
                     <input type="email" name="email" id="email" 

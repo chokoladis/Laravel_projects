@@ -2,7 +2,7 @@
   transition: 0.3s all;
 }
 
-.width-fit {
+.wd-fit {
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -60,17 +60,18 @@ body header.header .uk-navbar-container .uk-navbar-nav * {
 }
 body header.header .uk-navbar-container .uk-navbar-nav > li a {
   color: rgb(0, 110, 255);
-  transform: skew(0deg, 0deg);
+  filter: drop-shadow(0px 0px 3px rgba(192, 192, 192, 0.575));
   transition: 0.3s;
 }
 body header.header .uk-navbar-container .uk-navbar-nav > li a img {
   width: 40px;
   filter: saturate(0%) brightness(1.1);
+  border-radius: 6px;
+  background: white;
 }
 body header.header .uk-navbar-container .uk-navbar-nav > li a:hover {
   color: rgba(252, 76, 32, 0.918);
-  transform: skew(-10deg, 3deg);
-  transform: skew(10deg, 1deg);
+  filter: drop-shadow(0px 2px 5px rgb(158, 158, 158));
   transition: 0.3s;
 }
 body header.header .uk-navbar-container .uk-navbar-nav > li ul {
@@ -143,6 +144,74 @@ body section.content {
   padding-top: 80px;
   color: black;
 }
+body section.content .to_do_list .row_list .content_list {
+  box-shadow: 0px 3px 6px rgb(224, 224, 224);
+  padding: 15px 30px;
+  border-radius: 6px;
+}
+body section.content .to_do_list .row_list .content_list h4 {
+  font-weight: 700;
+}
+body section.content .to_do_list .row_list .content_list p {
+  text-overflow: ellipsis;
+  max-height: 72px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+body section.content .to_do_list .row_list .content_list .complited {
+  min-width: 60px;
+}
+body section.content .to_do_list .row_list .content_list .complited .success svg {
+  background: #32d296;
+}
+body section.content .to_do_list .row_list .content_list .complited .warning svg {
+  background: #faa05a;
+}
+body section.content .to_do_list .row_list .content_list .complited svg {
+  border-radius: 6px;
+  color: white;
+  padding: 10px;
+}
+body section.content .to_do_list .row_list .bottom_btns {
+  justify-content: end;
+}
+body section.content .to_do_list .row_list .bottom_btns .btn {
+  margin-right: 10px;
+  padding: 5px 15px;
+  align-items: center;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px silver;
+}
+body section.content .to_do_list .row_list .bottom_btns .btn .icon {
+  margin-right: 5px;
+}
+body section.content .to_do_list .row_list .bottom_btns .btn p {
+  margin: 0;
+  font-weight: 600;
+}
+body section.content .to_do_list .row_list .bottom_btns .btn.add {
+  background: #32d296;
+}
+body section.content .to_do_list .row_list .bottom_btns .btn.add:hover {
+  background: #5cdbab;
+}
+body section.content .to_do_list .row_list .bottom_btns .btn.update {
+  background: #1e87f0;
+}
+body section.content .to_do_list .row_list .bottom_btns .btn.update:hover {
+  background: #4ea1f3;
+}
+body section.content .to_do_list .row_list .bottom_btns .btn.delete {
+  background: #faa05a;
+}
+body section.content .to_do_list .row_list .bottom_btns .btn.delete:hover {
+  background: #fcbd8c;
+}
 body section .bg_volny {
   background-image: url("/img/volny_okean.jpg");
   background-size: cover;
@@ -169,6 +238,7 @@ body section form .uk-inline:hover input[type=submit] {
   background: #000;
   color: white;
   box-shadow: 2px 3px 10px rgb(224, 224, 224);
+  box-shadow: 2px 3px 10px rgb(85, 160, 160);
   transform: skewX(-13deg);
   transition: 0.3s;
 }

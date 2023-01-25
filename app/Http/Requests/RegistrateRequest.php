@@ -24,7 +24,8 @@ class RegistrateRequest extends FormRequest
     public function rules()
     {
         return [
-            'fio'  => 'required|min:2|max:120',
+            'fio'  => 'max:120',
+            'username' => 'required|unique:users,username',
             'email'   => 'required|min:8|max:70|email:rfc,filter,dns',
             'password' => 'required|min:6',
             'password_conf' => 'required|same:password',

@@ -14,7 +14,7 @@
                 
                 <div class="uk-inline">
                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
-                    <input type="email" name="email" id="email" class="uk-input uk-form-small uk-form-blank @error('email') uk-form-danger @enderror">
+                    <input type="text" name="username" id="username" class="uk-input uk-form-small uk-form-blank @error('email') uk-form-danger @enderror">
                 </div>
                 <div class="uk-inline">
                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>

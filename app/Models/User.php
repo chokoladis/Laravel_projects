@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+    
     protected $fillable = [
         'fio',
         'email',
@@ -17,5 +19,9 @@ class User extends Model
 
     public function setPasswordAttribute($value) {
         $this->attributes['password'] = bcrypt($value);
+    }
+
+    public function toDoList() {
+        return $this->belongsToMany('App\ToDoList');
     }
 }
