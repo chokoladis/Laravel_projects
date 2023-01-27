@@ -129,6 +129,9 @@ body header.header .uk-navbar-container .uk-navbar-nav > li:hover a > img {
 body header.header .uk-navbar-container .uk-navbar-nav > li:hover ul {
   top: 40px;
 }
+body header.header .uk-navbar-container .uk-navbar-nav > li.current a > img {
+  filter: saturate(100%) brightness(1);
+}
 body header.header .uk-navbar-container .uk-navbar-nav > li.active a > img {
   filter: saturate(100%) brightness(1);
 }
@@ -144,10 +147,15 @@ body section.content {
   padding-top: 80px;
   color: black;
 }
+body section.content .to_do_list .row_list {
+  position: relative;
+  margin-bottom: 25px;
+}
 body section.content .to_do_list .row_list .content_list {
   box-shadow: 0px 3px 6px rgb(224, 224, 224);
   padding: 15px 30px;
   border-radius: 6px;
+  background: white;
 }
 body section.content .to_do_list .row_list .content_list h4 {
   font-weight: 700;
@@ -186,6 +194,7 @@ body section.content .to_do_list .row_list .bottom_btns .btn {
   border-top-right-radius: 0;
   cursor: pointer;
   box-shadow: 0px 2px 4px silver;
+  max-height: 20px;
 }
 body section.content .to_do_list .row_list .bottom_btns .btn .icon {
   margin-right: 5px;
@@ -193,6 +202,9 @@ body section.content .to_do_list .row_list .bottom_btns .btn .icon {
 body section.content .to_do_list .row_list .bottom_btns .btn p {
   margin: 0;
   font-weight: 600;
+}
+body section.content .to_do_list .row_list .bottom_btns .btn:hover {
+  max-height: 40px;
 }
 body section.content .to_do_list .row_list .bottom_btns .btn.add {
   background: #32d296;
@@ -245,6 +257,18 @@ body section form .uk-inline:hover input[type=submit] {
 body section form .uk-inline:hover .uk-form-icon[uk-icon="icon: push"] {
   filter: brightness(23);
   z-index: 100;
+}
+body .form_todolist_add .forms-control .uk-inline {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  padding: 0;
+}
+body .form_todolist_add .forms-control .uk-inline label {
+  margin-left: 10px;
+}
+body .form_todolist_add button[type=submit] svg {
+  color: white;
 }
 body footer {
   padding: 100px;

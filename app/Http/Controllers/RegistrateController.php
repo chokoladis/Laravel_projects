@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegistrateRequest;
 use Illuminate\Support\Facades\Auth;
-
+use SoftDeletes;
 
 class RegistrateController extends Controller
 {
@@ -17,10 +17,9 @@ class RegistrateController extends Controller
 
     public function newUser(RegistrateRequest $req){
 
-        
         $User = User::create($req->validated());
 
-        auth($User);
+        // auth($User);
         // Auth::login($User);
 
         return redirect()->route('page-account')->with('success', 'Пользователь успешно добавлен');

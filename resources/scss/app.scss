@@ -177,13 +177,17 @@ body{
                             top: 40px;
                         }
                     }
+                    &.current{
+                        a>img{
+                            filter: saturate(100%) brightness(1);
+                        }
+                    }
                     &.active{
 
                         a>img{
                             filter: saturate(100%) brightness(1);
                         }
                         
-
                         ul{
                             top: 80px;
                         }
@@ -210,10 +214,14 @@ body{
 
                 .row_list{
 
+                    position: relative;
+                    margin-bottom: 25px;
+
                     .content_list{
                         box-shadow: $header-nav-shadow;
                         padding: 15px 30px;
                         border-radius: $border-radius-img;
+                        background: white;
 
                         h4{
                             font-weight: 700;
@@ -261,6 +269,7 @@ body{
                             border-top-right-radius: 0;
                             cursor: pointer;
                             box-shadow: $logo-shadow;
+                            max-height: 20px;
                             
                             .icon{
                                 margin-right: 5px;
@@ -269,6 +278,10 @@ body{
                             p{
                                 margin: 0;
                                 font-weight: 600;
+                            }
+
+                            &:hover{
+                                max-height: 40px;
                             }
 
                             &.add{
@@ -356,6 +369,33 @@ body{
             }
            
         }
+    }
+
+    .form_todolist_add{
+        
+        .forms-control{
+
+            
+            .uk-inline{
+                display: flex;
+                align-items: center;
+                margin-right: 10px;
+                padding: 0;
+
+                label{
+                    margin-left: 10px;
+                }
+            }
+            
+        }
+
+        button[type="submit"]{
+
+            svg{
+                color: white;
+            }
+        }
+
     }
     
     footer{

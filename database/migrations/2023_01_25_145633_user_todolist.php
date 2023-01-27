@@ -15,8 +15,8 @@ class UserTodolist extends Migration
     {
         Schema::create('user_todolist', function (Blueprint $table) {
             $table->id();
-            $table->user_id('string');
-            $table->todolist_id('string');
+            $table->string('user_id');
+            $table->string('todolist_id');
             $table->timestamps();
         });
     }

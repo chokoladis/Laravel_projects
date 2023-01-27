@@ -23,8 +23,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         return view('homepage');
     });
     
+    // BLOCK TODOLIST
     Route::get('/todolist', 'ToDoListController@show');
+
+    Route::get('/todolist/add', 'ToDoListController@addTask')->name('page-todolist-add');
     
+    
+    // BLOCK ACCOUNT USER
     Route::get('/account', function(){
         return view('account');
     })->name('page-account');

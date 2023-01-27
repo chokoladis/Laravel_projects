@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="bottom_btns uk-flex">
-                        <div class="btn uk-flex add">
+                        <div class="btn uk-flex add" uk-toggle="target: #modal-close-default">
                             <div class="icon">
                                 <span uk-icon="icon: plus; ratio: 1"></span>
                             </div>
@@ -46,5 +46,8 @@
             </div>
         </div>
     </section>
-    
+
+    @include('inc.todolist_add')    
+
 @endsection
+
