@@ -6,7 +6,7 @@
                 
             @csrf
         
-            <div class="forms-control uk-flex">
+            <div class="forms-control uk-flex uk-margin-small-bottom">
                 <div class="uk-inline uk-width-1-4">
                     <span class="uk-form-icon" uk-icon="icon: pencil"></span>
                     <input type="text" name="title" id="title" placeholder="Input title task" required class="uk-input @error('title') uk-form-danger @enderror">
@@ -23,9 +23,20 @@
                     <label class="uk-form-label" for="compited">Complited</label>
                 </div>
             </div>
+            <div class="dates forms-control uk-flex uk-margin-small-bottom">
+                <div class="uk-inline uk-width-1-4">
+                    <span class="uk-form-icon" uk-icon="icon: calendar"></span>
+                    <input type="datetime-local" name="date_start" id="date_start" uk-tooltip="Date-time start task" required class="uk-input @error('date_start') uk-form-danger @enderror">
+                </div>
+                <div class="uk-inline uk-width-1-4">
+                    <span class="uk-form-icon" uk-icon="icon: calendar"></span>
+                    <input type="datetime-local" name="date_end" id="date_end" uk-tooltip="Date-time end task" required class="uk-input @error('date_end') uk-form-danger @enderror">
+                </div>
+                
+            </div>
             
         
-            <button type="submit" class="uk-inline uk-width-1-4 uk-margin-small-top uk-button uk-button-primary">
+            <button type="submit" class="uk-inline uk-width-1-4 uk-button uk-button-primary">
                 <span class="uk-form-icon" uk-icon="icon: push"></span>
                 send
             </button>

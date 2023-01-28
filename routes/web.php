@@ -24,9 +24,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
     
     // BLOCK TODOLIST
-    Route::get('/todolist', 'ToDoListController@show');
+    Route::get('/todolist', 'ToDoListController@show')->name('page-todolist');
 
-    Route::get('/todolist/add', 'ToDoListController@addTask')->name('page-todolist-add');
+    Route::post('/todolist/add', 'ToDoListController@addTask')->name('page-todolist-add');
     
     
     // BLOCK ACCOUNT USER

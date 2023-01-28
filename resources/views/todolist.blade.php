@@ -10,39 +10,56 @@
         <div class="uk-container">
             <h2>To Do List</h2>
             <div class="to_do_list uk-width-1-1 uk-flex-column uk-flex">
-                <div class="row_list uk-flex uk-flex-column">
-                    <div class="content_list uk-flex uk-flex-between">
-                        <div class="text_list">
-                            <h4>Lorem, ipsum.</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, non. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus quas sunt voluptatem minus ipsum ad! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, aliquid. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente magni, itaque explicabo ea praesentium incidunt!</p>
-                            <small>2023-01-23 14:34:10</small>
-                        </div>
-                        <div class="complited">
-                            <span class="success" uk-icon="icon: happy; ratio: 3"></span>
-                            {{-- <span uk-icon="icon: warning; ratio: 3"></span> --}}
-                        </div>
-                    </div>
-                    <div class="bottom_btns uk-flex">
-                        <div class="btn uk-flex add" uk-toggle="target: #modal-close-default">
-                            <div class="icon">
-                                <span uk-icon="icon: plus; ratio: 1"></span>
+                
+                @if(!$todolist)
+                    <button class="uk-button uk-button-primary" uk-toggle="target: #modal-close-default">Add</button>                    
+                @else
+                    @foreach($todolist as $task)
+                        <div class="row_list uk-flex uk-flex-column" data-id="{{ $task->id }}">
+                            <div class="content_list uk-flex uk-flex-between">
+                                <div class="text_list">
+                                    <h4>{{ $task->title }}</h4>
+                                    <p>{{ $task->description }}</p>
+                                    <div class="dates uk-flex">
+                                        <div class="date_start uk-flex uk-flex-column uk-margin-small-right">
+                                            <i>Date start</i>
+                                            <small><b>{{ $task->date_start }}</b></small>
+                                        </div>
+                                        <div class="date_end uk-flex uk-flex-column">
+                                            <i>Date end</i>
+                                            <small><b>{{ $task->date_end }}</b></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="complited">
+                                    <span class="success" uk-icon="icon: happy; ratio: 3"></span>
+                                    {{-- <span uk-icon="icon: warning; ratio: 3"></span> --}}
+                                </div>
                             </div>
-                            <p>Add</p>
-                        </div>
-                        <div class="btn uk-flex update">
-                            <div class="icon">
-                                <span uk-icon="icon: refresh; ratio: 1"></span>
+                            <div class="bottom_btns uk-flex">
+                                <div class="btn uk-flex add" uk-toggle="target: #modal-close-default">
+                                    <div class="icon">
+                                        <span uk-icon="icon: plus; ratio: 1"></span>
+                                    </div>
+                                    <p>Add</p>
+                                </div>
+                                <div class="btn uk-flex update">
+                                    <div class="icon">
+                                        <span uk-icon="icon: refresh; ratio: 1"></span>
+                                    </div>
+                                    <p>Update</p>
+                                </div>
+                                <div class="btn uk-flex delete">
+                                    <div class="icon">
+                                        <span uk-icon="icon: minus; ratio: 1"></span>
+                                    </div>
+                                    <p>Delete</p>
+                                </div>
                             </div>
-                            <p>Update</p>
                         </div>
-                        <div class="btn uk-flex delete">
-                            <div class="icon">
-                                <span uk-icon="icon: minus; ratio: 1"></span>
-                            </div>
-                            <p>Delete</p>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
+                
             </div>
         </div>
     </section>
