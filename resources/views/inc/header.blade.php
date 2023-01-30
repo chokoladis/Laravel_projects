@@ -2,7 +2,7 @@
     <nav class="uk-navbar-container uk-flex-between" uk-navbar>
         <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
-                <li class="@if(Request::is('posts')) current  @endif"><a href="/posts" title="posts"><img src="/img/posts.svg" alt="Посты"></a></li>
+                <li class="@if(Request::is('posts')) current @endif"><a href="/posts" title="posts"><img src="/img/posts.svg" alt="Посты"></a></li>
                 <li class="@if(Request::is('todolist')) current @endif"><a href="/todolist" title="todolist"><img src="/img/todolist.png" alt="todolist"></a></li>
             </ul>
         </div>
@@ -15,7 +15,7 @@
             <ul class="uk-navbar-nav">
                 <li class="@if(Request::is('posts')) current @endif"><a href="#">no real</a></li>
                 <li class="@if(Request::is('registration') || Request::is('login')) current @endif">
-                    <a href="#" title="profile"><img src="/img/header-user-icon.png" alt="Пользователь"></a>
+                    <a href="#" title="profile"><img src="/img/user-icon.png" alt="Пользователь"></a>
                     <ul>
                         <li class="@if(Request::is('registration')) current @endif">
                             <a href="/registration">Registrate</a></li>

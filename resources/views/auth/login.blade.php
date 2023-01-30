@@ -7,7 +7,7 @@
 @section('content')
     <section class="content">
         <div class="uk-container">
-            <h4 class="uk-margin-auto uk-width-1-2">Registrate me please, dont stop, DEEEEPER!!!</h4>
+            <h4 class="uk-margin-auto uk-width-1-2 wd-fit">Registrate me please, dont stop, DIPPER!!!</h4>
             <form method="POST" action="{{ route('login-submit') }}" class="uk-flex uk-flex-column uk-width-1-2 uk-margin-auto">
                 
                 @csrf

@@ -9,6 +9,7 @@ $header-nav-shadow: 0px 3px 6px rgb(224, 224, 224);
 $info: #1e87f0;
 $success:#32d296;
 $warning:#faa05a;
+$danger: #f0506e;
 $border-radius-logo: 10px;
 $border-radius-img: 6px;
 $border-radius-input: 4px;
@@ -17,6 +18,10 @@ $border-radius-input: 4px;
 $footer-shadow: 0px -3px 6px rgb(224, 224, 224);
 $bg-content: linear-gradient(170deg, rgba(0, 0, 0, 0), rgba(14, 2, 49, 0.63));
 
+a, a:hover{
+    text-decoration: none;
+    color: $linkColor;
+}
 *,*:hover{
     transition: .3s all;
 }
@@ -93,6 +98,12 @@ body{
                         filter: drop-shadow(0px 0px 3px rgba(192, 192, 192, 0.575));
                         transition: .3s;
     
+                        &[title="profile"]{
+                            img{
+                                padding: 6px 8px;
+                            }    
+                        }
+
                         img{
                             width: 40px;
                             filter: saturate(0%) brightness(1.1);
@@ -260,6 +271,12 @@ body{
                     .bottom_btns{
                         justify-content: end;
 
+                        a,.btn{
+                            color: rgb(68, 68, 68);
+                            &:hover{
+                                color: #000;
+                            }
+                        }
                         .btn{
                             margin-right: 10px;
                             padding: 5px 15px;
@@ -301,16 +318,59 @@ body{
                             }
 
                             &.delete{
-                                background: $warning;
+                                // background: $warning;
+                                background: $danger;
 
                                 &:hover{
-                                    background: lighten($warning,10%);
+                                    background: lighten($danger,10%);
                                 }
                             }
 
                         }
                     }
                     
+                }
+            }
+
+            .nav_pages{
+                    
+                ul{
+                   
+                    display: flex;
+                    // width: fit-content;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 auto;
+                    padding: 0;
+
+                    li{
+                        display: block;
+                        padding: 5px 10px;
+                        background: $linkColor;
+                        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.26) inset;
+
+                        a{
+                            color: lighten($linkColor, 35%);
+                        }
+
+                        &:hover,&.page-curr{
+                            background: darken($linkColor, 10%);
+
+                            a{
+                                color: white;
+                            }
+                        }
+
+                        &:last-child{
+                            border-top-right-radius: $border-radius-img;
+                            border-bottom-right-radius: $border-radius-img;
+                        }
+
+                        &:first-child{
+                            border-top-left-radius: $border-radius-img;
+                            border-bottom-left-radius: $border-radius-img;
+                        }
+                    }
                 }
             }
         }
@@ -371,7 +431,7 @@ body{
         }
     }
 
-    .form_todolist_add{
+    #modal_todolist{
         
         .forms-control{
 

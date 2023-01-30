@@ -4,7 +4,7 @@
             UIkit.notification({
                 message: "Ошибка: {{ $err }}",
                 status: 'warning',
-                pos: 'bottom-center,
+                pos: 'bottom-center',
                 timeout: 5000
             });
         </script>
@@ -13,12 +13,12 @@
 
 @if(session('success'))
     <script>
-        let err_mes =  ' '+{{ session('success') }} + ' ';
+        let err_mes =  " {{ session('success') }} ";
 
         UIkit.notification({
             message: err_mes,
             status: 'success',
-            pos: 'bottom-center,
+            pos: 'bottom-center',
             timeout: 5000
         });
     </script>

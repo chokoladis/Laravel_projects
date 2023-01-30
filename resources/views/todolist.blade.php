@@ -10,7 +10,7 @@
         <div class="uk-container">
             <h2>To Do List</h2>
             <div class="to_do_list uk-width-1-1 uk-flex-column uk-flex">
-                
+
                 @if(!$todolist)
                     <button class="uk-button uk-button-primary" uk-toggle="target: #modal-close-default">Add</button>                    
                 @else
@@ -32,39 +32,57 @@
                                     </div>
                                 </div>
                                 <div class="complited">
-                                    <span class="success" uk-icon="icon: happy; ratio: 3"></span>
-                                    {{-- <span uk-icon="icon: warning; ratio: 3"></span> --}}
+                                    @if($task->complited)
+                                        <span class="success" uk-icon="icon: happy; ratio: 3"></span>
+                                    @else
+                                        <span class="warning" uk-icon="icon: warning; ratio: 3"></span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="bottom_btns uk-flex">
-                                <div class="btn uk-flex add" uk-toggle="target: #modal-close-default">
+                                <div class="btn uk-flex add" uk-toggle="target: #modal_todolist">
                                     <div class="icon">
                                         <span uk-icon="icon: plus; ratio: 1"></span>
                                     </div>
                                     <p>Add</p>
                                 </div>
-                                <div class="btn uk-flex update">
+                                <div class="btn uk-flex update" uk-toggle="target: #modal_todolist">
                                     <div class="icon">
                                         <span uk-icon="icon: refresh; ratio: 1"></span>
                                     </div>
                                     <p>Update</p>
                                 </div>
-                                <div class="btn uk-flex delete">
+                                <a href="{{ route('page-todolist-del-submit', $task->id) }}" class="btn uk-flex delete">
                                     <div class="icon">
                                         <span uk-icon="icon: minus; ratio: 1"></span>
                                     </div>
                                     <p>Delete</p>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     @endforeach
                 @endif
                 
             </div>
+            <div class="nav_pages">
+                <ul>
+                    {{-- Постраничный вывод --}}
+                    @php ($i = 1)
+                    
+                    @while ($i <= $qtyPages)
+                        <li class="
+                            @php ($page = Request::query('page'))
+                            @if($page == $i || ($page == false && $i == 1 )) page-curr @endif">
+                            <a href="{{ route('page-todolist') }}?page={{$i}}">{{$i}}</a></li>
+                        @php ($i++)
+                    @endwhile
+                   
+                </ul>
+            </div>
         </div>
     </section>
 
-    @include('inc.todolist_add')    
+    @include('modals.modal_container')
 
 @endsection
 

@@ -5,17 +5,6 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\LoginController;
 // use App\Http\Controllers\LogoutController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
     
@@ -24,9 +13,17 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
     
     // BLOCK TODOLIST
-    Route::get('/todolist', 'ToDoListController@show')->name('page-todolist');
+    // Route::get('/todolist', 'ToDoListController@show')->name('page-todolist');
+    Route::get('/todolist', 'ToDoListController@showWithNav')->name('page-todolist');
 
-    Route::post('/todolist/add', 'ToDoListController@addTask')->name('page-todolist-add');
+    Route::get('/todolist/add', 'ToDoListController@addTask')->name('page-todolist-add');
+    Route::post('/todolist/add', 'ToDoListController@addTaskSubmit')->name('page-todolist-add-submit');
+
+    Route::get('/todolist/task_{id}/update', 'ToDoListController@updTask')->name('page-todolist-upd');
+    Route::post('/todolist/task_{id}/update', 'ToDoListController@updTaskSubmit')->name('page-todolist-upd-submit');
+
+    // Route::post('/todolist/task_{id}/delete/submit', 'ToDoListController@delTaskSubmit')->name('page-todolist-del-submit');
+    Route::get('/todolist/task_{id}/delete/submit', 'ToDoListController@delTaskSubmit')->name('page-todolist-del-submit');
     
     
     // BLOCK ACCOUNT USER

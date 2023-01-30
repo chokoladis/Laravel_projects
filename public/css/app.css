@@ -1,3 +1,8 @@
+a, a:hover {
+  text-decoration: none;
+  color: rgb(0, 110, 255);
+}
+
 *, *:hover {
   transition: 0.3s all;
 }
@@ -62,6 +67,9 @@ body header.header .uk-navbar-container .uk-navbar-nav > li a {
   color: rgb(0, 110, 255);
   filter: drop-shadow(0px 0px 3px rgba(192, 192, 192, 0.575));
   transition: 0.3s;
+}
+body header.header .uk-navbar-container .uk-navbar-nav > li a[title=profile] img {
+  padding: 6px 8px;
 }
 body header.header .uk-navbar-container .uk-navbar-nav > li a img {
   width: 40px;
@@ -185,6 +193,12 @@ body section.content .to_do_list .row_list .content_list .complited svg {
 body section.content .to_do_list .row_list .bottom_btns {
   justify-content: end;
 }
+body section.content .to_do_list .row_list .bottom_btns a, body section.content .to_do_list .row_list .bottom_btns .btn {
+  color: rgb(68, 68, 68);
+}
+body section.content .to_do_list .row_list .bottom_btns a:hover, body section.content .to_do_list .row_list .bottom_btns .btn:hover {
+  color: #000;
+}
 body section.content .to_do_list .row_list .bottom_btns .btn {
   margin-right: 10px;
   padding: 5px 15px;
@@ -219,10 +233,40 @@ body section.content .to_do_list .row_list .bottom_btns .btn.update:hover {
   background: #4ea1f3;
 }
 body section.content .to_do_list .row_list .bottom_btns .btn.delete {
-  background: #faa05a;
+  background: #f0506e;
 }
 body section.content .to_do_list .row_list .bottom_btns .btn.delete:hover {
-  background: #fcbd8c;
+  background: #f47f95;
+}
+body section.content .nav_pages ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+}
+body section.content .nav_pages ul li {
+  display: block;
+  padding: 5px 10px;
+  background: rgb(0, 110, 255);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.26) inset;
+}
+body section.content .nav_pages ul li a {
+  color: #b3d4ff;
+}
+body section.content .nav_pages ul li:hover, body section.content .nav_pages ul li.page-curr {
+  background: #0058cc;
+}
+body section.content .nav_pages ul li:hover a, body section.content .nav_pages ul li.page-curr a {
+  color: white;
+}
+body section.content .nav_pages ul li:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+body section.content .nav_pages ul li:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 body section .bg_volny {
   background-image: url("/img/volny_okean.jpg");
@@ -258,16 +302,16 @@ body section form .uk-inline:hover .uk-form-icon[uk-icon="icon: push"] {
   filter: brightness(23);
   z-index: 100;
 }
-body .form_todolist_add .forms-control .uk-inline {
+body #modal_todolist .forms-control .uk-inline {
   display: flex;
   align-items: center;
   margin-right: 10px;
   padding: 0;
 }
-body .form_todolist_add .forms-control .uk-inline label {
+body #modal_todolist .forms-control .uk-inline label {
   margin-left: 10px;
 }
-body .form_todolist_add button[type=submit] svg {
+body #modal_todolist button[type=submit] svg {
   color: white;
 }
 body footer {
