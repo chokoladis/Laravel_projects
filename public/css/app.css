@@ -219,10 +219,10 @@ body section.content .to_do_list .row_list .bottom_btns .btn.update:hover {
   background: #4ea1f3;
 }
 body section.content .to_do_list .row_list .bottom_btns .btn.delete {
-  background: #faa05a;
+  background: #f0506e;
 }
 body section.content .to_do_list .row_list .bottom_btns .btn.delete:hover {
-  background: #fcbd8c;
+  background: #f47f95;
 }
 body section .bg_volny {
   background-image: url("/img/volny_okean.jpg");
@@ -258,16 +258,16 @@ body section form .uk-inline:hover .uk-form-icon[uk-icon="icon: push"] {
   filter: brightness(23);
   z-index: 100;
 }
-body .form_todolist_add .forms-control .uk-inline {
+body #modal_todolist .forms-control .uk-inline {
   display: flex;
   align-items: center;
   margin-right: 10px;
   padding: 0;
 }
-body .form_todolist_add .forms-control .uk-inline label {
+body #modal_todolist .forms-control .uk-inline label {
   margin-left: 10px;
 }
-body .form_todolist_add button[type=submit] svg {
+body #modal_todolist button[type=submit] svg {
   color: white;
 }
 body footer {

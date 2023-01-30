@@ -9,6 +9,7 @@ $header-nav-shadow: 0px 3px 6px rgb(224, 224, 224);
 $info: #1e87f0;
 $success:#32d296;
 $warning:#faa05a;
+$danger: #f0506e;
 $border-radius-logo: 10px;
 $border-radius-img: 6px;
 $border-radius-input: 4px;
@@ -301,10 +302,11 @@ body{
                             }
 
                             &.delete{
-                                background: $warning;
+                                // background: $warning;
+                                background: $danger;
 
                                 &:hover{
-                                    background: lighten($warning,10%);
+                                    background: lighten($danger,10%);
                                 }
                             }
 
@@ -371,7 +373,7 @@ body{
         }
     }
 
-    .form_todolist_add{
+    #modal_todolist{
         
         .forms-control{
 

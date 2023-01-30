@@ -16,7 +16,11 @@ class ToDoListController extends Controller
         return view('todolist')->with('todolist', $todolist);
     }
 
-    public function addTask(ToDoListRequest $req){
+    public function addTask(){
+        return view('modals.todolist_add');
+    }
+
+    public function addTaskSubmit(ToDoListRequest $req){
 
         $task = new ToDoList();
 
@@ -25,10 +29,11 @@ class ToDoListController extends Controller
             'date_start' => 'required',
         ]);
 
-        if ($req->input('complited') == NULL){
-            $req->complited = 0;
-        } else {
-            $req->complited = 1;
+        // dd($req);
+        if($req->input('complited') == 'on'){
+            $complited = 1;
+        }else{
+            $complited = 0;
         }
 
         $task->title = $req->input('title');
@@ -36,7 +41,7 @@ class ToDoListController extends Controller
         $task->date_start = $req->input('date_start');
         $task->date_end = $req->input('date_end');
         
-        $task->complited = $req->complited;
+        $task->complited = $complited;
 
         $task->save();
 
@@ -44,4 +49,43 @@ class ToDoListController extends Controller
 
     }
     
+    public function updTask($id){
+        return view('modals.todolist_upd', [ 'task' => ToDoList::find($id)]);
+    }
+
+    public function updTaskSubmit(ToDoListRequest $req, $id){
+        $task = ToDoList::find($id);
+        
+        $req->validate([
+            'title'  => 'required|max:100',
+            'date_start' => 'required',
+        ]);
+
+        if($req->input('complited') == 'on'){
+            $complited = 1;
+        }else{
+            $complited = 0;
+        }
+
+        $task->title = $req->input('title');
+        $task->description = $req->input('description');
+        $task->date_start = $req->input('date_start');
+        $task->date_end = $req->input('date_end');
+        
+        $task->complited = $complited;
+
+        $task->save();
+        
+        // echo '{ "data": "Task'.$id.' success updated" }';
+        return redirect()->route('page-todolist', $id)->with('success', 'Задача успешно изменена');
+    }
+    
+    public function delTaskSubmit($id){
+
+        ToDoList::find($id)->delete();
+        // echo '{ "data": "Task'.$id.' success deleted" }';
+
+        return redirect()->route('page-todolist', $id)->with('success', 'Задача успешно удалена');
+    }
+
 }

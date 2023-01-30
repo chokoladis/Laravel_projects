@@ -2064,22 +2064,82 @@ function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-var _iterator = _createForOfIteratorHelper($('input')),
-  _step;
-try {
-  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-    var key = _step.value;
-    if ($(key).hasClass('uk-form-danger')) {
-      $(key).removeClass('uk-form-blank');
+$(document).ready(function () {
+  var _iterator = _createForOfIteratorHelper($('input')),
+    _step;
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var key = _step.value;
+      if ($(key).hasClass('uk-form-danger')) {
+        $(key).removeClass('uk-form-blank');
+      }
     }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
   }
-} catch (err) {
-  _iterator.e(err);
-} finally {
-  _iterator.f();
-}
-$('.uk-navbar-nav > li').on('click', function () {
-  $(this).toggleClass('active');
+  $('.uk-navbar-nav > li').on('click', function () {
+    $(this).toggleClass('active');
+  });
+  $('.bottom_btns .add').on('click', function () {
+    $.ajax({
+      url: '/todolist/add',
+      method: 'get',
+      success: function success(data) {
+        $('#modal_todolist .content').empty();
+        $('#modal_todolist .content').html(data);
+      },
+      error: function error(xhr, ajaxOptions, thrownError) {
+        $('#modal_todolist .content').empty();
+        $('#modal_todolist .content').html('<br>' + xhr.status + '<br>' + thrownError);
+      }
+    });
+  });
+  $('.bottom_btns .update').on('click', function () {
+    var parent = $(this).parents('.row_list');
+    var id = parent.attr('data-id');
+    $.ajax({
+      url: '/todolist/task_' + id + '/update',
+      method: 'get',
+      success: function success(data) {
+        $('#modal_todolist .content').empty();
+        $('#modal_todolist .content').html(data);
+      },
+      error: function error(xhr, ajaxOptions, thrownError) {
+        $('#modal_todolist .content').empty();
+        $('#modal_todolist .content').html('<br>' + xhr.status + '<br>' + thrownError);
+      }
+    });
+  });
+
+  // $('.bottom_btns .delete').on('click', function(){
+
+  //     let parent = $(this).parents('.row_list');
+  //     let id = parent.attr('data-id');
+
+  //     $.ajax({
+  //         url: '/todolist/task_'+id+'/delete/submit',
+  //         method: 'post',
+  //         data: {'id': id},
+  //         success: function(data){
+  //             UIkit.notification({
+  //                 message: data,
+  //                 status: 'success',
+  //                 pos: 'bottom-center',
+  //                 timeout: 5000
+  //             });
+  //         },
+  //         error: function (xhr, ajaxOptions, thrownError) {
+  //             UIkit.notification({
+  //                 message: '<br>'+xhr.status+'<br>'+thrownError,
+  //                 status: 'success',
+  //                 pos: 'bottom-center',
+  //                 timeout: 5000
+  //             });
+  //         }
+  //     }) 
+  // });
 });
 
 /***/ }),

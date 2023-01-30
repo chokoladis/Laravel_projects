@@ -32,29 +32,32 @@
                                     </div>
                                 </div>
                                 <div class="complited">
-                                    <span class="success" uk-icon="icon: happy; ratio: 3"></span>
-                                    {{-- <span uk-icon="icon: warning; ratio: 3"></span> --}}
+                                    @if($task->complited)
+                                        <span class="success" uk-icon="icon: happy; ratio: 3"></span>
+                                    @else
+                                        <span class="warning" uk-icon="icon: warning; ratio: 3"></span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="bottom_btns uk-flex">
-                                <div class="btn uk-flex add" uk-toggle="target: #modal-close-default">
+                                <div class="btn uk-flex add" uk-toggle="target: #modal_todolist">
                                     <div class="icon">
                                         <span uk-icon="icon: plus; ratio: 1"></span>
                                     </div>
                                     <p>Add</p>
                                 </div>
-                                <div class="btn uk-flex update">
+                                <div class="btn uk-flex update" uk-toggle="target: #modal_todolist">
                                     <div class="icon">
                                         <span uk-icon="icon: refresh; ratio: 1"></span>
                                     </div>
                                     <p>Update</p>
                                 </div>
-                                <div class="btn uk-flex delete">
+                                <a href="{{ route('page-todolist-del-submit', $task->id) }}" class="btn uk-flex delete">
                                     <div class="icon">
                                         <span uk-icon="icon: minus; ratio: 1"></span>
                                     </div>
                                     <p>Delete</p>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     @endforeach
@@ -64,7 +67,7 @@
         </div>
     </section>
 
-    @include('inc.todolist_add')    
+    @include('modals.modal_container')
 
 @endsection
 
