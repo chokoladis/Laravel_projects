@@ -17,7 +17,11 @@
             <div class="uk-form-controls">
                 <input type="checkbox" class="uk-checkbox @error('complited') uk-form-danger @enderror" name="complited">
             </div>
+<<<<<<< HEAD
             <label class="uk-form-label" for="complited">Complited</label>
+=======
+            <label class="uk-form-label" for="compited">Complited</label>
+>>>>>>> a2d269998b8f20f4cd942307bf156a5ec8fb0602
         </div>
     </div>
     <div class="dates forms-control uk-flex uk-margin-small-bottom">
