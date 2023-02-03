@@ -1,5 +1,5 @@
 <h2 class="uk-modal-title">Update task {{ $task->id }}</h2>
-<form action="{{ route('page-todolist-upd', $task->id)  }}" method="post" class="form_todolist_upd uk-flex uk-flex-column">
+<form action="{{ route('todolist.update', $task->id)  }}" method="post" class="form_todolist_upd uk-flex uk-flex-column">
         
     @csrf
 

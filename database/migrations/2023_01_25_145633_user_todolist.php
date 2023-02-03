@@ -15,8 +15,16 @@ class UserTodolist extends Migration
     {
         Schema::create('user_todolist', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('todolist_id');
+
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('todolist_id');
+
+            $table->index('user_id', 'user_todolist_user_id');
+            $table->index('todolist_id', 'user_todolist_todolist_id');
+
+            $table->foreign('user_id', 'user_todolist_user_id')->on('users')->references('id');
+            $table->foreign('todolist_id', 'user_todolist_todolist_id')->on('to_do_lists')->references('id');
+
             $table->timestamps();
         });
     }

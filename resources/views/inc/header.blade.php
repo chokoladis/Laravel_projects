@@ -3,7 +3,7 @@
         <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
                 <li class="@if(Request::is('posts')) current @endif"><a href="/posts" title="posts"><img src="/img/posts.svg" alt="Посты"></a></li>
-                <li class="@if(Request::is('todolist')) current @endif"><a href="/todolist" title="todolist"><img src="/img/todolist.png" alt="todolist"></a></li>
+                <li class="@if(Request::is('todolist')) current @endif"><a href="{{ route('todolist.index') }}" title="todolist"><img src="/img/todolist.png" alt="todolist"></a></li>
             </ul>
         </div>
         <div class="logo">

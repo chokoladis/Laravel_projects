@@ -237,7 +237,6 @@ body section.content .to_do_list .row_list .bottom_btns .btn.delete {
 }
 body section.content .to_do_list .row_list .bottom_btns .btn.delete:hover {
   background: #f47f95;
-<<<<<<< HEAD
 }
 body section.content .nav_pages ul {
   display: flex;
@@ -268,8 +267,6 @@ body section.content .nav_pages ul li:last-child {
 body section.content .nav_pages ul li:first-child {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
-=======
->>>>>>> a2d269998b8f20f4cd942307bf156a5ec8fb0602
 }
 body section .bg_volny {
   background-image: url("/img/volny_okean.jpg");

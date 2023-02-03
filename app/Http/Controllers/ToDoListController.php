@@ -8,7 +8,7 @@ use App\Http\Requests\ToDoListRequest;
 
 class ToDoListController extends Controller
 {
-    public function show(){
+    public function index(){
 
         $todolist = ToDoList::all();
 
@@ -21,7 +21,7 @@ class ToDoListController extends Controller
         return view('todolist')->with('todolist', $todolist);
     }
 
-    public function showWithNav(){
+    public function indexPaginate(){
 
         $todolist = ToDoList::paginate(4);
     
@@ -42,11 +42,11 @@ class ToDoListController extends Controller
 
 
 
-    public function addTask(){
+    public function create(){
         return view('modals.todolist_add');
     }
 
-    public function addTaskSubmit(ToDoListRequest $req){
+    public function store(ToDoListRequest $req){
 
         $task = new ToDoList();
 
@@ -75,11 +75,11 @@ class ToDoListController extends Controller
 
     }
     
-    public function updTask($id){
+    public function edit($id){
         return view('modals.todolist_upd', [ 'task' => ToDoList::find($id)]);
     }
 
-    public function updTaskSubmit(ToDoListRequest $req, $id){
+    public function update(ToDoListRequest $req, $id){
         $task = ToDoList::find($id);
         
         $req->validate([
@@ -106,7 +106,7 @@ class ToDoListController extends Controller
         return redirect()->route('page-todolist', $id)->with('success', 'Задача успешно изменена');
     }
     
-    public function delTaskSubmit($id){
+    public function destroy($id){
 
         ToDoList::find($id)->delete();
         // echo '{ "data": "Task'.$id.' success deleted" }';

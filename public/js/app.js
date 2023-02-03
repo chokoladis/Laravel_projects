@@ -2084,7 +2084,7 @@ $(document).ready(function () {
   });
   $('.bottom_btns .add').on('click', function () {
     $.ajax({
-      url: '/todolist/add',
+      url: '/todolist/create',
       method: 'get',
       success: function success(data) {
         $('#modal_todolist .content').empty();
@@ -2100,7 +2100,7 @@ $(document).ready(function () {
     var parent = $(this).parents('.row_list');
     var id = parent.attr('data-id');
     $.ajax({
-      url: '/todolist/task_' + id + '/update',
+      url: '/todolist/task_' + id + '/edit',
       method: 'get',
       success: function success(data) {
         $('#modal_todolist .content').empty();

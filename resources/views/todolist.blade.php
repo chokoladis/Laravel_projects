@@ -52,7 +52,7 @@
                                     </div>
                                     <p>Update</p>
                                 </div>
-                                <a href="{{ route('page-todolist-del-submit', $task->id) }}" class="btn uk-flex delete">
+                                <a href="{{ route('todolist.destroy', $task->id) }}" class="btn uk-flex delete">
                                     <div class="icon">
                                         <span uk-icon="icon: minus; ratio: 1"></span>
                                     </div>
@@ -73,7 +73,7 @@
                         <li class="
                             @php ($page = Request::query('page'))
                             @if($page == $i || ($page == false && $i == 1 )) page-curr @endif">
-                            <a href="{{ route('page-todolist') }}?page={{$i}}">{{$i}}</a></li>
+                            <a href="{{ route('todolist.index') }}?page={{$i}}">{{$i}}</a></li>
                         @php ($i++)
                     @endwhile
                    

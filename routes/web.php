@@ -13,17 +13,17 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
     
     // BLOCK TODOLIST
-    // Route::get('/todolist', 'ToDoListController@show')->name('page-todolist');
-    Route::get('/todolist', 'ToDoListController@showWithNav')->name('page-todolist');
+    // Route::get('/todolist', 'ToDoListController@index')->name('page-todolist');
+    Route::get('/todolist', 'ToDoListController@indexPaginate')->name('todolist.index');
 
-    Route::get('/todolist/add', 'ToDoListController@addTask')->name('page-todolist-add');
-    Route::post('/todolist/add', 'ToDoListController@addTaskSubmit')->name('page-todolist-add-submit');
+    Route::get('/todolist/create', 'ToDoListController@create')->name('todolist.create');
+    Route::post('/todolist', 'ToDoListController@store')->name('todolist.store');
 
-    Route::get('/todolist/task_{id}/update', 'ToDoListController@updTask')->name('page-todolist-upd');
-    Route::post('/todolist/task_{id}/update', 'ToDoListController@updTaskSubmit')->name('page-todolist-upd-submit');
+    Route::get('/todolist/task_{id}/edit', 'ToDoListController@edit')->name('todolist.edit');
+    Route::post('/todolist/task_{id}', 'ToDoListController@update')->name('todolist.update');
 
     // Route::post('/todolist/task_{id}/delete/submit', 'ToDoListController@delTaskSubmit')->name('page-todolist-del-submit');
-    Route::get('/todolist/task_{id}/delete/submit', 'ToDoListController@delTaskSubmit')->name('page-todolist-del-submit');
+    Route::get('/todolist/task_{id}', 'ToDoListController@destroy')->name('todolist.destroy');
     
     
     // BLOCK ACCOUNT USER
