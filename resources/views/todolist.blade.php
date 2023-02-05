@@ -12,7 +12,7 @@
             <div class="to_do_list uk-width-1-1 uk-flex-column uk-flex">
 
                 @if(!$todolist)
-                    <button class="uk-button uk-button-primary" uk-toggle="target: #modal-close-default">Add</button>                    
+                    <button class="uk-button uk-button-primary add" uk-toggle="target: #modal_todolist">Add</button>                    
                 @else
                     @foreach($todolist as $task)
                         <div class="row_list uk-flex uk-flex-column" data-id="{{ $task->id }}">
@@ -30,6 +30,12 @@
                                             <small><b>{{ $task->date_end }}</b></small>
                                         </div>
                                     </div>
+                                    @foreach($users as $user)
+                                        @if ($user->id == $task->user_id)
+                                            <p>{{ $user->username }}</p>  
+                                            @break      
+                                        @endif    
+                                    @endforeach
                                 </div>
                                 <div class="complited">
                                     @if($task->complited)

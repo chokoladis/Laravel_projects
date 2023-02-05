@@ -2082,7 +2082,7 @@ $(document).ready(function () {
   $('.uk-navbar-nav > li').on('click', function () {
     $(this).toggleClass('active');
   });
-  $('.bottom_btns .add').on('click', function () {
+  $('.add[uk-toggle="target: #modal_todolist"]').on('click', function () {
     $.ajax({
       url: '/todolist/create',
       method: 'get',

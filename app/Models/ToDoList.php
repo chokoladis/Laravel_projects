@@ -14,9 +14,4 @@ class ToDoList extends Model
         'date_start_task',
         'date_end_task'
     ];
-
-
-    public function users(){
-        return $this->belongsToMany('App\User');
-    }
 }

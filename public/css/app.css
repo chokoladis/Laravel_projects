@@ -247,26 +247,24 @@ body section.content .nav_pages ul {
 }
 body section.content .nav_pages ul li {
   display: block;
-  padding: 5px 10px;
-  background: rgb(0, 110, 255);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.26) inset;
 }
 body section.content .nav_pages ul li a {
+  padding: 5px 10px;
+  background: rgb(0, 110, 255);
   color: #b3d4ff;
 }
-body section.content .nav_pages ul li:hover, body section.content .nav_pages ul li.page-curr {
-  background: #0058cc;
-}
-body section.content .nav_pages ul li:hover a, body section.content .nav_pages ul li.page-curr a {
-  color: white;
-}
-body section.content .nav_pages ul li:last-child {
+body section.content .nav_pages ul li a:last-child {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
-body section.content .nav_pages ul li:first-child {
+body section.content .nav_pages ul li a:first-child {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
+}
+body section.content .nav_pages ul li:hover a, body section.content .nav_pages ul li.page-curr a {
+  color: white;
+  background: #0058cc;
 }
 body section .bg_volny {
   background-image: url("/img/volny_okean.jpg");

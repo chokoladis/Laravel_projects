@@ -3,10 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateUsersTable extends Migration
+class CreateToDoListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,17 +14,18 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('to_do_lists', function (Blueprint $table) {
             $table->id();
-            $table->string('fio', 120)->nullable();
-            $table->string('username')->unique();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();            
+            $table->string('title');
+            $table->string('description');
+            $table->dateTime('date_start');
+            $table->dateTime('date_end');
+            $table->boolean('complited');
+            
             $table->timestamps();
 
             $table->softDeletes();
+            $table->unsignedBigInteger('user_id');
         });
     }
 
@@ -36,6 +36,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('to_do_lists');
     }
 }

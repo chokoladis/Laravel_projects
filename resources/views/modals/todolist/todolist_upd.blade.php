@@ -4,18 +4,18 @@
     @csrf
 
     <div class="forms-control uk-flex uk-margin-small-bottom">
-        <div class="uk-inline uk-width-1-4">
+        <div class="uk-inline uk-width-1-5">
             <span class="uk-form-icon" uk-icon="icon: pencil"></span>
             <input type="text" name="title" id="title"
                 placeholder="Input title task" required class="uk-input @error('title') uk-form-danger @enderror" value="{{ $task->title }}">
         </div>
-        <div class="uk-inline uk-width-2-4">
+        <div class="uk-inline uk-width-3-5">
             <span class="uk-form-icon" uk-icon="icon: pencil"></span>
             <input type="text" name="description" id="description"
                 class="uk-input @error('description') uk-form-danger @enderror" placeholder="Input description task" value="{{ $task->description }}">
         </div>
             
-        <div class="uk-inline uk-width-1-4 ">
+        <div class="uk-inline uk-width-1-5">
             <div class="uk-form-controls">
                 <input type="checkbox" class="uk-checkbox @error('complited') uk-form-danger @enderror" name="complited"
                     @if($task->complited == 1) checked='true' @endif>
@@ -24,19 +24,27 @@
         </div>
     </div>
     <div class="dates forms-control uk-flex uk-margin-small-bottom">
-        <div class="uk-inline uk-width-1-4">
+        <div class="uk-inline uk-width-1-5">
             <span class="uk-form-icon" uk-icon="icon: calendar"></span>
             <input type="datetime-local" name="date_start" id="date_start"
                 uk-tooltip="Date-time start task" required class="uk-input @error('date_start') uk-form-danger @enderror"
                 value="{{ $task->date_start }}">
         </div>
-        <div class="uk-inline uk-width-1-4">
+        <div class="uk-inline uk-width-1-5">
             <span class="uk-form-icon" uk-icon="icon: calendar"></span>
             <input type="datetime-local" name="date_end" id="date_end"
                 uk-tooltip="Date-time end task" class="uk-input @error('date_end') uk-form-danger @enderror"
                 value="{{ $task->date_end }}">
         </div>
-        
+        <div class="uk-inline uk-width-1-5">
+            <select class="uk-select" aria-label="Select" name="user" id="user" uk-tooltip="Choose user">
+                @foreach($users as $user)
+                    <option 
+                        @if($user->id == $task->user_id) selected @endif
+                        value="{{ $user->id }}">{{ $user->username }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
     
 

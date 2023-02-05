@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ToDoList;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\ToDoListRequest;
 
@@ -23,8 +24,9 @@ class ToDoListController extends Controller
 
     public function indexPaginate(){
 
+        
         $todolist = ToDoList::paginate(4);
-    
+
         $todolist->withPath('/todolist');
 
         if($todolist->isEmpty()) $todolist = false;
@@ -34,16 +36,15 @@ class ToDoListController extends Controller
 
         $data = [
             'todolist' => $todolist,
-            'qtyPages' => ceil($qty_pages)
+            'qtyPages' => ceil($qty_pages),
+            'users' => User::all()
         ];
 
         return view('todolist')->with($data);
     }
 
-
-
     public function create(){
-        return view('modals.todolist_add');
+        return view('modals.todolist.todolist_add', [ 'users' => User::all()]);
     }
 
     public function store(ToDoListRequest $req){
@@ -53,6 +54,7 @@ class ToDoListController extends Controller
         $req->validate([
             'title'  => 'required|max:100',
             'date_start' => 'required',
+            'user_id' => '',
         ]);
 
         // dd($req);
@@ -68,15 +70,23 @@ class ToDoListController extends Controller
         $task->date_end = $req->input('date_end');
         
         $task->complited = $complited;
+        $task->user_id = $req->input('user_id');
 
+        // dd($req);
         $task->save();
 
-        return redirect()->route('page-todolist')->with('success', 'Задача успешно добавлена');
+        // $task
+        // $req->input('user');
+
+        return redirect()->route('todolist.index')->with('success', 'Задача успешно добавлена');
 
     }
     
     public function edit($id){
-        return view('modals.todolist_upd', [ 'task' => ToDoList::find($id)]);
+        return view('modals.todolist.todolist_upd', [ 
+            'task' => ToDoList::find($id),
+            'users' => User::all()
+        ]);
     }
 
     public function update(ToDoListRequest $req, $id){
@@ -103,7 +113,7 @@ class ToDoListController extends Controller
         $task->save();
         
         // echo '{ "data": "Task'.$id.' success updated" }';
-        return redirect()->route('page-todolist', $id)->with('success', 'Задача успешно изменена');
+        return redirect()->route('todolist.index', $id)->with('success', 'Задача успешно изменена');
     }
     
     public function destroy($id){
@@ -111,7 +121,7 @@ class ToDoListController extends Controller
         ToDoList::find($id)->delete();
         // echo '{ "data": "Task'.$id.' success deleted" }';
 
-        return redirect()->route('page-todolist', $id)->with('success', 'Задача успешно удалена');
+        return redirect()->route('todolist.index', $id)->with('success', 'Задача успешно удалена');
     }
 
 }
