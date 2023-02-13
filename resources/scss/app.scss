@@ -272,21 +272,22 @@ body{
                         justify-content: end;
 
                         a,.btn{
-                            color: rgb(68, 68, 68);
+                            color: transparent;
+
                             &:hover{
                                 color: #000;
                             }
                         }
                         .btn{
                             margin-right: 10px;
-                            padding: 5px 15px;
+                            padding: 0;
                             align-items: center;
                             border-radius: $border-radius-logo;
                             border-top-left-radius: 0;
                             border-top-right-radius: 0;
                             cursor: pointer;
                             box-shadow: $logo-shadow;
-                            max-height: 20px;
+                            max-height: 5px;
                             
                             .icon{
                                 margin-right: 5px;
@@ -328,6 +329,23 @@ body{
 
                         }
                     }
+
+                    &:hover{
+                        
+                        .btn{
+                            padding: 5px 15px;
+                            max-height: 20px;
+                        }
+
+                        a,p{
+                            color: rgb(68, 68, 68);
+                        }
+                        a svg,.btn svg{
+                            color: rgb(68, 68, 68);
+                            transition: 0s color;
+                        }
+                        
+                    }
                     
                 }
             }
@@ -346,28 +364,29 @@ body{
                     li{
                         display: block;
                         box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.26) inset;
+                        padding: 5px 10px;
+                        background: $linkColor;
 
                         a{
-                            padding: 5px 10px;
-                            background: $linkColor;
                             color: lighten($linkColor, 35%);
+                        }
 
-                            &:last-child{
-                                border-top-right-radius: $border-radius-img;
-                                border-bottom-right-radius: $border-radius-img;
-                            }
-    
-                            &:first-child{
-                                border-top-left-radius: $border-radius-img;
-                                border-bottom-left-radius: $border-radius-img;
-                            }
+                        &:last-child{
+                            border-top-right-radius: $border-radius-img;
+                            border-bottom-right-radius: $border-radius-img;
+                        }
+
+                        &:first-child{
+                            border-top-left-radius: $border-radius-img;
+                            border-bottom-left-radius: $border-radius-img;
                         }
 
                         &:hover,&.page-curr{
                             
+                            background: darken($linkColor, 10%);
+                            
                             a{
                                 color: white;
-                                background: darken($linkColor, 10%);
                             }
                         }
 

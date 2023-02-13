@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\BaseController;
 use App\Models\ToDoList;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\ToDoListRequest;
 
-class ToDoListController extends Controller
+class ToDoListController extends BaseController
 {
     public function index(){
 
         $todolist = ToDoList::all();
-
-        // $todolist = ToDoList::paginate(4);
-    
-        // $todolist->withPath('/todolist');
 
         if($todolist->isEmpty()) $todolist = false;
 
@@ -51,11 +48,7 @@ class ToDoListController extends Controller
 
         $task = new ToDoList();
 
-        $req->validate([
-            'title'  => 'required|max:100',
-            'date_start' => 'required',
-            'user_id' => '',
-        ]);
+        $req->validated();
 
         // dd($req);
         if($req->input('complited') == 'on'){
@@ -74,9 +67,6 @@ class ToDoListController extends Controller
 
         // dd($req);
         $task->save();
-
-        // $task
-        // $req->input('user');
 
         return redirect()->route('todolist.index')->with('success', 'Задача успешно добавлена');
 

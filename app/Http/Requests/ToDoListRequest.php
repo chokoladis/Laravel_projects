@@ -24,7 +24,10 @@ class ToDoListRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'  => 'required|max:100',     
+            'title'  => 'required|max:100',
+            'date_start' => 'required',
+            'user_id' => '',
         ];
+        
     }
 }
