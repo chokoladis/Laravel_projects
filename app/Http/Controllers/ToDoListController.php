@@ -7,6 +7,7 @@ use App\Models\ToDoList;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\ToDoListRequest;
+use App\Http\Requests\FilterRequest;
 
 class ToDoListController extends BaseController
 {
@@ -21,10 +22,23 @@ class ToDoListController extends BaseController
 
     public function indexPaginate(){
 
+        // $data = $request->validated();
+
+        // dd($data);
+
+        // $query = ToDoList::query();
+
+        // if (isset($data['user_id'])){
+        //     $query->where('user_id', $data['user_id']);
+        // }
         
+        // $todolist = $query->get();
+
+        // dd($todolist);
+
         $todolist = ToDoList::paginate(4);
 
-        $todolist->withPath('/todolist');
+        // $todolist->withPath('/todolist');
 
         if($todolist->isEmpty()) $todolist = false;
 

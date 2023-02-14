@@ -273,10 +273,10 @@ body section.content .nav_pages ul li:first-child {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
-body section.content .nav_pages ul li:hover, body section.content .nav_pages ul li.page-curr {
+body section.content .nav_pages ul li:hover, body section.content .nav_pages ul li.active {
   background: #0058cc;
 }
-body section.content .nav_pages ul li:hover a, body section.content .nav_pages ul li.page-curr a {
+body section.content .nav_pages ul li:hover a, body section.content .nav_pages ul li:hover span, body section.content .nav_pages ul li.active a, body section.content .nav_pages ul li.active span {
   color: white;
 }
 body section .bg_volny {

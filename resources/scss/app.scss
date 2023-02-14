@@ -381,11 +381,11 @@ body{
                             border-bottom-left-radius: $border-radius-img;
                         }
 
-                        &:hover,&.page-curr{
+                        &:hover,&.active{
                             
                             background: darken($linkColor, 10%);
                             
-                            a{
+                            a,span{
                                 color: white;
                             }
                         }

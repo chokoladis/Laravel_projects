@@ -71,19 +71,7 @@
                 
             </div>
             <div class="nav_pages">
-                <ul>
-                    {{-- Постраничный вывод --}}
-                    @php ($i = 1)
-                    
-                    @while ($i <= $qtyPages)
-                        <li class="
-                            @php ($page = Request::query('page'))
-                            @if($page == $i || ($page == false && $i == 1 )) page-curr @endif">
-                            <a href="{{ route('todolist.index') }}?page={{$i}}">{{$i}}</a></li>
-                        @php ($i++)
-                    @endwhile
-                   
-                </ul>
+                {{ $todolist->links() }}
             </div>
         </div>
     </section>
