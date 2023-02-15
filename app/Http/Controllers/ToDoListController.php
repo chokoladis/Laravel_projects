@@ -20,34 +20,28 @@ class ToDoListController extends BaseController
         return view('todolist')->with('todolist', $todolist);
     }
 
-    public function indexPaginate(){
+    public function indexPaginate(FilterRequest $request){
 
-        // $data = $request->validated();
+        $data = $request->validated();
 
         // dd($data);
 
-        // $query = ToDoList::query();
+        $query = ToDoList::query();
 
-        // if (isset($data['user_id'])){
-        //     $query->where('user_id', $data['user_id']);
-        // }
+        if (isset($data['user_id'])){
+            $query->where('user_id', $data['user_id']);
+        }
         
-        // $todolist = $query->get();
+        $todolist = $query->get();
 
-        // dd($todolist);
-
-        $todolist = ToDoList::paginate(4);
+        $todolist = $query->paginate(4)->withQueryString();
 
         // $todolist->withPath('/todolist');
 
         if($todolist->isEmpty()) $todolist = false;
 
-        $count = ToDoList::all()->count();
-        $qty_pages = $count/4;
-
         $data = [
             'todolist' => $todolist,
-            'qtyPages' => ceil($qty_pages),
             'users' => User::all()
         ];
 

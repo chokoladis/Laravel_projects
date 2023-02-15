@@ -7,7 +7,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
-    
+
+    Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){   
+
+        Route::get('/todolist', 'AdminController@index')->name('admin.index');
+        
+    });
+
     Route::get('/', function () {
         return view('homepage');
     });

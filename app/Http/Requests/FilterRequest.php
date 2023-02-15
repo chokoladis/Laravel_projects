@@ -24,9 +24,9 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'  => 'required|max:100',
+            'title'  => '',
             'description' => '',
-            'date_start' => 'required',
+            'date_start' => '',
             'date_end' => '',
             'complited' => '',
             'user_id' => ''
