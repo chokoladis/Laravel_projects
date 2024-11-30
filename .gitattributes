@@ -1,2 +1,5 @@
 public/plugins/** linguist-vendored
 public/dist/** linguist-vendored
+
+/public/plugins/** linguist-vendored
+/public/dist/** linguist-vendored
